@@ -1,7 +1,9 @@
 import axios from "axios";
 // import raw_data from "../../data.json";
 
-const API_KEY = "j7XouRG_TnCoMEY5MMEDmfSofFbbeQ_-GYuhvpmHnRU";
+const API_KEY = "";
+const API_ACCESS_TOKEN =
+  "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwZmZmY2JmNWI1ZGQwYmY1NzU0NWRkZDMxMTZlMjQ1MCIsIm5iZiI6MTc0NzkyMjI5MS42OTIsInN1YiI6IjY4MmYyZDczYjMzNzliN2Q5OWQ1YzEzMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.kDfzOB_6uUhkRPp40Zk-mqkTCqudLpGTw6ZsLg7TYn8";
 const PER_PAGE = 20;
 axios.defaults.baseURL = "https://api.unsplash.com/";
 

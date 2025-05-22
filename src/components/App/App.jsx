@@ -24,11 +24,6 @@ import MoviesPage from "../../pages/MoviesPage/MoviesPage";
 // };
 
 function App() {
-  <Routes>
-    <Route index path="/" element={HomePage} />
-    <Route index path="/movies" element={MoviesPage} />
-  </Routes>;
-
   // const [searchQuery, setSearchQuery] = useState(""); // query search data
   // const [hits, setHits] = useState([]); // images data
   // const [isLoading, setIsLoading] = useState(false); // loader
@@ -85,6 +80,10 @@ function App() {
   return (
     <>
       <Navigation />
+      <Routes>
+        <Route index path="/" element={<HomePage />} />
+        <Route index path="/movies" element={<MoviesPage />} />
+      </Routes>
       {/* <SearchBar onSubmit={handleSearchBar} />
       <PulseLoader
         loading={isLoading}

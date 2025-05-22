@@ -1,15 +1,16 @@
 import axios from "axios";
 // import raw_data from "../../data.json";
 
-const API_KEY = "";
-const API_ACCESS_TOKEN = "";
+const API_KEY =
+  "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwZmZmY2JmNWI1ZGQwYmY1NzU0NWRkZDMxMTZlMjQ1MCIsIm5iZiI6MTc0NzkyMjI5MS42OTIsInN1YiI6IjY4MmYyZDczYjMzNzliN2Q5OWQ1YzEzMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.kDfzOB_6uUhkRPp40Zk-mqkTCqudLpGTw6ZsLg7TYn8";
 const PER_PAGE = 20;
-axios.defaults.baseURL = "https://api.unsplash.com/";
+axios.defaults.baseURL = "https://api.themoviedb.org";
+
+// '/3/search/movie?include_adult=false&language=en-US&page=1';
 
 const api = axios.create({
   headers: {
-    "Accept-Version": "v1",
-    Authorization: `Client-ID ${API_KEY}`,
+    Authorization: { API_KEY },
   },
 });
 

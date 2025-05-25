@@ -1,14 +1,16 @@
-// import { useState, useEffect } from "react";
 // import { PulseLoader } from "react-spinners";
 
 import { Routes, Route } from "react-router-dom";
 
 import Navigation from "../Navigation/Navigation";
+import MovieCast from "../MovieCast/MovieCast";
+import MovieReviews from "../MovieReviews/MovieReviews";
 
 import HomePage from "../../pages/HomePage/HomePage";
 import MoviesPage from "../../pages/MoviesPage/MoviesPage";
+import MovieDetailsPage from "../../pages/MovieDetailsPage/MovieDetailsPage";
+import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 
-// import { getImageGalleryData } from "../../api/api";
 // import SearchBar from "../SearchBar/SearchBar";
 // import ErrorMessage from "../ErrorMessage/ErrorMessage";
 // import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
@@ -25,10 +27,7 @@ import MoviesPage from "../../pages/MoviesPage/MoviesPage";
 
 function App() {
   // const [searchQuery, setSearchQuery] = useState(""); // query search data
-  // const [hits, setHits] = useState([]); // images data
-  // const [isLoading, setIsLoading] = useState(false); // loader
-  // const [error, setError] = useState(false); // errors
-  // const [errorMessage, setErrorMessage] = useState("");
+
   // const [page, setPage] = useState(1); // pagination
   // const [maxPage, setMaxPage] = useState(1); // pagination
   // const [modalOpenFlag, setModalOpenFlag] = useState(false); // modal
@@ -55,34 +54,17 @@ function App() {
   //   // e.resetForm();
   // }; // search form handler
 
-  // useEffect(() => {
-  //   if (!searchQuery) return; // disable onload search
-  //   const fetching = async () => {
-  //     try {
-  //       setIsLoading(true);
-  //       setError(false);
-  //       const { data } = await getImageGalleryData(searchQuery, page);
-  //       setHits((prev) => {
-  //         return page === 1 ? data.results : [...prev, ...data.results];
-  //       });
-  //       setMaxPage(data.total_pages);
-  //     } catch (err) {
-  //       setError(true);
-  //       setHits([]);
-  //       setErrorMessage(err);
-  //     } finally {
-  //       setIsLoading(false);
-  //     }
-  //   };
-  //   fetching();
-  // }, [page, searchQuery]); // api call
-
   return (
     <>
       <Navigation />
       <Routes>
-        <Route index path="/" element={<HomePage />} />
-        <Route index path="/movies" element={<MoviesPage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/movies" element={<MoviesPage />} />
+        <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
+          <Route path="cast" element={<MovieCast />} />
+          <Route path="reviews" element={<MovieReviews />} />
+        </Route>
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       {/* <SearchBar onSubmit={handleSearchBar} />
       <PulseLoader

@@ -34,3 +34,15 @@ export const getMovieCastByMovieID = async (movieID) => {
 export const getMovieReviewByMovieID = async (movieID) => {
   return await api.get(`/movie/${movieID}/reviews`);
 };
+
+/* Get Movie by Search Query */
+export const getMovieBySearchQuery = async (query) => {
+  return await api.get(`search/movie`, {
+    params: {
+      query,
+      include_adult: false,
+      language: "en-US",
+      page: 1,
+    },
+  });
+};

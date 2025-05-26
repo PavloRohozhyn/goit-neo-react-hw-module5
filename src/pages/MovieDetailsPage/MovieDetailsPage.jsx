@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, NavLink, Outlet } from "react-router-dom";
-import Back from "../../components/Back/Back";
+import BackLink from "../../components/BackLink/BackLink";
 import { getMovieByMovieID } from "../../api/api";
 import noimg from "../../no-photo.avif";
 
@@ -9,31 +9,18 @@ import css from "./MovieDetailsPage.module.css";
 const MovieDetailsPage = () => {
   const [details, setDetails] = useState([]);
   const { movieId } = useParams();
-  const [isLoading, setIsLoading] = useState(false); // loader
-  const [error, setError] = useState(false); // errors
-  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     const fetchingDetails = async () => {
-      try {
-        setIsLoading(true);
-        setError(false);
-        const { data } = await getMovieByMovieID(movieId);
-        setDetails(data);
-      } catch (err) {
-        setError(true);
-        setDetails([]);
-        setErrorMessage(err);
-      } finally {
-        setIsLoading(false);
-      }
+      const { data } = await getMovieByMovieID(movieId);
+      setDetails(data);
     };
     fetchingDetails();
-  }, []);
+  }, [movieId]);
 
   return (
     <>
-      <Back />
+      <BackLink />
       <div className={css.detailContainer}>
         {details && (
           <>

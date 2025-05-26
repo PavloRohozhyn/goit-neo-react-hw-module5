@@ -1,4 +1,4 @@
-.contactlist {
+.movieList {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
@@ -10,6 +10,6 @@
   padding: 0;
 }
 
-.contactListItem {
+.movieListItem {
   padding: 1rem;
 }

@@ -1,3 +1,11 @@
 .active {
   color: red;
 }
+
+.navList {
+  list-style-type: none;
+}
+
+.navListItem {
+  list-style: none;
+}

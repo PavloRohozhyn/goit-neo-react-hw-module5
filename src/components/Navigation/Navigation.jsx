@@ -7,8 +7,8 @@ const Navigation = () => {
   return (
     <div>
       <nav>
-        <ul>
-          <li>
+        <ul className={css.navList}>
+          <li className={css.navListItem}>
             <NavLink className={navActiveClass} to="/">
               Home
             </NavLink>

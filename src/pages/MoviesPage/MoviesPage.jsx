@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 import { useSearchParams } from "react-router-dom";
 import { getMovieBySearchQuery } from "../../api/api";
+import SearchBox from "../../components/SearchBox/SearchBox";
 
 import MovieList from "../../components/MovieList/MovieList";
-
-import css from "./MoviesPage.module.css";
 
 const MoviesPage = () => {
   const [query, setQuery] = useState("");
@@ -27,27 +26,13 @@ const MoviesPage = () => {
     fetchingDataBySearch();
   }, [searchParams]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const v1 = query.trim();
-    if (!v1) {
-      toast.error("Please enter a search keywords");
-      return;
-    }
+  const handleSubmit = (query) => {
     setSearchParams({ query });
   };
 
   return (
     <div>
-      <form onSubmit={handleSubmit} className={css.formWrap}>
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-        <button type="submit">Search</button>
-        <Toaster />
-      </form>
+      <SearchBox onSubmit={handleSubmit} />
       <MovieList data={data} />
     </div>
   );
